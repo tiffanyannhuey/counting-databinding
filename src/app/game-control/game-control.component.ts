@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class GameControlComponent implements OnInit {
 
-  @Output() counter = new EventEmitter<{count: number}>();
+  @Output() counter = new EventEmitter<number>();
   interval: any;
   currentCount: number = 0;
 
@@ -18,7 +18,8 @@ export class GameControlComponent implements OnInit {
   }
 
   startGame(): void {
-    this.interval = setInterval(() => this.counter.emit({count: this.currentCount++}), 1000);
+    console.log('this is clicked');
+    this.interval = setInterval(() => this.counter.emit(this.currentCount++), 1000);
   }
 
   stopGame(): void {
